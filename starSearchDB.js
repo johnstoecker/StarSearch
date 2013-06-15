@@ -19,7 +19,7 @@ function importStars(){
         //            doSQL(db, 0, response.split(';\n'), 'stars'); 
         //        });
         });
-//    addStars();
+    addStars();
 }
 
 function addListeners(){
