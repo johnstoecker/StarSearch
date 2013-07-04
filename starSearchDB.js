@@ -2,7 +2,6 @@
 
 
 
-
 //startup!
 if(window.openDatabase){
     importStars();
@@ -91,14 +90,8 @@ function addStars() {
     $.get('./resources/hyg.csv', function(response) {
         //making star database of size 3MB
         var starRows = response.split('\n');
-        db.transaction(function(tx){
-            tx.executeSql('DROP TABLE stars', function(){
-                console.log('success!')
-                }, function(txx, error) {
-                console.log(error)
-                });
 
-            var createTableCall = 'CREATE TABLE "stars" (\n\
+            var createTableCall = 'CREATE TABLE IF NOT EXISTS "stars" (\n\
                       "star_id" int(8) DEFAULT NULL,\n\
                       "hip" int(8) DEFAULT NULL,\n\
                       "hd" int(8) DEFAULT NULL,\n\
